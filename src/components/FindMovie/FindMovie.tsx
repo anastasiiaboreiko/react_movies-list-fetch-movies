@@ -38,7 +38,7 @@ export const FindMovie: React.FC<Props> = ({ onAdd }) => {
   const handleSearch = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (!query) {
+    if (!query.trim()) {
       return;
     }
 
@@ -106,7 +106,7 @@ export const FindMovie: React.FC<Props> = ({ onAdd }) => {
               data-cy="searchButton"
               type="submit"
               className={cn('button', 'is-light', { 'is-loading': isLoading })}
-              disabled={!query}
+              disabled={!query.trim()}
             >
               {foundMovie ? 'Search again' : 'Find a movie'}
             </button>
